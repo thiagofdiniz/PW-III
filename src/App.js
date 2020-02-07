@@ -4,21 +4,13 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="ui menu inverted fixed">
+      <a class="item">Editorials</a>
+      <a class="item">Reviews</a>
+      <div class="ui icon input">
+        <input type="text" placeholder="Buscar..." />
+        <i aria-hidden="true" class="search icon"></i>
+      </div>
     </div>
   );
 }
