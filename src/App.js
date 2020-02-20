@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  
+  class App extends Component {
+    constructor (){
+      super();
+      this.state = {
+        lista:[{
+          nome:'projeto',
+          descricao:'descricao',
+          usuario:'autor'
+        }]
+      };
+    }
+  render(){
   return (
     <>
       <div class="ui menu inverted fixed">
@@ -34,6 +47,9 @@ function App() {
       </div>
     </>
   );
+
+}
+}
 }
 
 export default App;
