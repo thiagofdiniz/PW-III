@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardProjeto from "./components/CardProjeto";
+import ModalNovoProjeto from "./components/ModalNovoProjeto";
 
 class App extends Component {
 
   constructor() {
     super();
-    this.state = { lista: [] };
+    this.state = {
+      lista: [
+        {
+          nome: "Projeto",
+          usuario: "Alguém",
+          likes: 0
+        }
+      ]
+    };
+  }
+
+  adicionarProjeto(projeto) {
+    this.setState({ lista: [...this.state.lista, projeto] })
   }
 
   componentDidMount() {
@@ -23,7 +36,7 @@ class App extends Component {
         <div className="ui inverted fixed huge menu">
           <div className="ui container">
             <a href="index.html" className="item">Projeto PW-III</a>
-            <button className="ui primary button">Criar Projeto</button>
+            <ModalNovoProjeto adicionarProjeto={this.adicionarProjeto.bind(this)} />
             <div className="ui icon input right menu">
               <input type="text" placeholder="Buscar..." />
               <i aria-hidden="true" className="search icon"></i>
@@ -35,12 +48,11 @@ class App extends Component {
             this.state.lista.map(projeto => {
               return (
                 <CardProjeto
-                  key={projeto.id} 
-                  nome={projeto.nome} 
-                  usuario={projeto.usuario} 
-                  descricao={projeto.descricao} 
-                  likes={projeto.likes} 
-                  id={projeto.id}
+                  key={projeto.id}
+                  nome={projeto.nome}
+                  usuario={projeto.usuario}
+                  descricao={projeto.descricao}
+                  likes={projeto.likes}
                 />)
             })
           }
