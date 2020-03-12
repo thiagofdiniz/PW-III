@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import api from '../api';
 
 class CardProjetos extends Component {
 
@@ -16,7 +17,13 @@ class CardProjetos extends Component {
 
     addLike() {
         let novo_likes = parseInt(this.state.likes + 1);
-        this.setState({ likes: novo_likes });
+        api.put(`projetos/${this.props.id}`, JSON.stringify({ likes: novo_likes })).then(function){
+            this.setState({ likes: novo_likes })
+        }
+        .catch(e=>{
+            
+        })
+        
     }
 
 
